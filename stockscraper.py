@@ -8,8 +8,10 @@ from pandas.tseries.offsets import BDay
 def to_integer(dt_time):
     return str(10000 * dt_time.year + 100 * dt_time.month + dt_time.day)
 
-def GetBackTestData(symbol, startdate, days):
-    token = "sk_33c727b7ddca48708f5ef95f7cbace8e"
+def GetData(symbol, startdate, days):
+    # Get your token from https://iexcloud.io/cloud-login#/register/
+    token = ""
+    
     data = []
 
     # Get testing days 
@@ -30,7 +32,7 @@ days = sys.argv[3]
 format = sys.argv[4]
 filename = sys.argv[5]
 
-data = GetBackTestData(symbol, startdate, days)
+data = GetData(symbol, startdate, days)
 
 keys = []
 for x in data[0]:
