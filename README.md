@@ -6,7 +6,7 @@ The StockScraper script can compile minute data of equities into a JSON or CSV f
 - Python3
 
 ## Run Script 
-To run script, paste this into your command line terminal.
+Retreive an API Token from IEX cloud [here](https://iexcloud.io/cloud-login#/register/). Paste the API Token in `line 13` of `stockscraper.py`. Write your command as follows, and run the script in your command terminal.
 ```sh 
 $ python3 path\to\stockscraper.py <symbol> <startdate format="yyyymmdd"> <businessdays options="Natural numbers only"> <format options="json/csv"> <filename>
 ```
