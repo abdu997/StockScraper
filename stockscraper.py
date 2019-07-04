@@ -34,13 +34,12 @@ filename = sys.argv[5]
 
 data = GetData(symbol, startdate, days)
 
-keys = []
-for x in data[0]:
-    keys.append(x)
-
 if format == "csv":
     with open(filename + ".csv", "w") as file:
         csv_file = csv.writer(file)
+        keys = []
+        for x in data[0]:
+            keys.append(x)
         csv_file.writerow(keys)
         for item in data:
             y = []
