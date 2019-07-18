@@ -26,16 +26,12 @@ def GetData(symbol, startdate, days):
             data.append(x)
     return data
 
-symbol = sys.argv[1]
-startdate = sys.argv[2]
-days = sys.argv[3]
 format = sys.argv[4]
-filename = sys.argv[5]
 
-data = GetData(symbol, startdate, days)
+data = GetData(sys.argv[1], sys.argv[2], sys.argv[3])
 
-if format == "csv":
-    with open(filename + ".csv", "w") as file:
+with open(sys.argv[5] + "." + format, "w") as file:
+    if format == "csv":
         csv_file = csv.writer(file)
         keys = []
         for x in data[0]:
@@ -46,8 +42,7 @@ if format == "csv":
             for x in keys:
                 y.append(item[x])
             csv_file.writerow(y)
-elif format == "json":
-    with open(filename  + ".json", "w") as file:
+    elif format == "json":
         json.dump(data, file)
 
 print ("Done")
